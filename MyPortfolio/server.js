@@ -1,29 +1,29 @@
-const express = require("express");
-const { Pool } = require("pg");
-const cors = require("cors");
+import dotenv from 'dotenv'
+import 'dotenv/config'
+const express = require('express');
+const { Pool } = require('pg');
 
+dotenv.config({path: __dirname+'/.env'})
 const app = express();
-app.use(cors());
+const port = process.env.PORT || 3000;
 
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "projects_db",
-  password: "mysecretpassword",
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
-app.get("/projects", async (req, res) => {
+app.get('/api/projects', async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM projects");
+    const result = await pool.query('SELECT * FROM projects');
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Server error");
+    res.status(500).send("Error retrieving projects.");
   }
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
