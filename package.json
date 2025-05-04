@@ -1,0 +1,23 @@
+{
+  "name": "plp",
+  "version": "1.0.0",
+  "description": "PLP Assignments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnfitBeard/PLP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnfitBeard/PLP/issues"
+  },
+  "homepage": "https://github.com/UnfitBeard/PLP#readme",
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
