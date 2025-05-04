@@ -1,9 +1,21 @@
+import express from "express"
 import dotenv from 'dotenv'
 import 'dotenv/config'
-const express = require('express');
-const { Pool } = require('pg');
+import { readFileSync } from "fs"
+import path, { parse } from 'path'
+import cors from "cors"
+import exp from "constants"
+import { userInfo } from "os"
+import pkg from "pg"
 
-dotenv.config({path: __dirname+'/.env'})
+const {Pool} = pkg
+
+//1.configure the dotenv 
+//top most level
+dotenv.config({ path: __dirname + "../MyPortfolio/.env" })
+
+//2.instance of express
+//the second most top level
 const app = express();
 const port = process.env.PORT || 3000;
 
