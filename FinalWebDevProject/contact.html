@@ -1,0 +1,34 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <main class="container slide-in">
+        <h1>Contact Us</h1>
+        <form id="contactForm" class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message!');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

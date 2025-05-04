@@ -1,0 +1,51 @@
+<!-- create.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <main class="container slide-in">
+        <h1>Create New Post</h1>
+        <form id="postForm" class="post-form">
+            <input type="text" id="postTitle" placeholder="Post Title" required>
+            <input type="text" id="postAuthor" placeholder="Author Name" required>
+            <input type="date" id="postDate" required>
+            <textarea id="postContent" placeholder="Post Content" rows="6" required></textarea>
+            <textarea id="postExcerpt" placeholder="Post Excerpt" rows="2" required></textarea>
+            <button type="submit" class="btn">Publish Post</button>
+        </form>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('postForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const newPost = {
+                id: posts.length + 1,
+                title: document.getElementById('postTitle').value,
+                author: document.getElementById('postAuthor').value,
+                date: new Date(document.getElementById('postDate').value).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }),
+                content: document.getElementById('postContent').value,
+                excerpt: document.getElementById('postExcerpt').value
+            };
+
+            posts.unshift(newPost);
+            localStorage.setItem('posts', JSON.stringify(posts));
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
