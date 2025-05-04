@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const projectsDiv = document.querySelector(".projects");
+  const projects = document.querySelector(".projects");
 
   try {
-    const response = await fetch("http://localhost:5000/projects");
-    const projects = await response.json();
+    // const response = await fetch("http://localhost:5000/projects");
+    const projects = projectsObj;
 
     projectsDiv.innerHTML += projects
       .map((project) => {
@@ -21,3 +21,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Error fetching projects:", error);
   }
 });
+
+const projectsObj = [
+  {
+    "name": "Personal Portfolio",
+    "description": "A responsive website showcasing my web development projects.",
+    "image": "https://via.placeholder.com/300x200?text=Portfolio",
+    "progress": "Completed"
+  },
+  {
+    "name": "Ecommerce Store",
+    "description": "An online store built with HTML, CSS, and JavaScript.",
+    "image": "https://via.placeholder.com/300x200?text=Ecommerce",
+    "progress": "In Progress"
+  },
+  {
+    "name": "Weather App",
+    "description": "A JavaScript app that fetches weather data using an API.",
+    "image": "https://via.placeholder.com/300x200?text=Weather+App",
+    "progress": "Completed"
+  }
+]
