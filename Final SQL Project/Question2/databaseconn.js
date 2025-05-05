@@ -1,12 +1,12 @@
 import mysql from 'mysql2/promise'
-var connection = mysql.createPool({
-    host: '127.0.0.1',    
-    user: 'root',       
-    password: 'my-secret-pw', 
-    database: 'task_db', 
+const connection = mysql.createPool({
+    host: "localhost",
+    user: "yourusername",
+    password: "yourpassword",
+    database: "yourdatabase",
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
   });
 
 export default connection
